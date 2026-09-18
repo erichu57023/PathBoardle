@@ -157,9 +157,15 @@ export function renderMenu() {
 
         // Update the entire menu in one draw
         DOM.menuContainer.replaceChildren(caseCards)
+        
+        // Enable buttons
+        DOM.playOrderBtn.disabled = false;
+        DOM.playRandomBtn.disabled = false;
     
     // Handle empty states (e.g. if a filter has no cases)
     } else {
+        DOM.playOrderBtn.disabled = true;
+        DOM.playRandomBtn.disabled = true;
         DOM.menuContainer.replaceChildren(filterEmptyNode);
     }
 }
