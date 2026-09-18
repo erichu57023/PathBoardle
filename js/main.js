@@ -8,7 +8,7 @@ import { renderGame } from './game.js';
 /* -------- RENDERING HELPER FUNCTIONS -------- */
 // Return to homepage
 export function returnHome() {
-    window.location.href = "../index.html";
+    window.location.href = ".";
 }
 
 // Transition the UI to the menu state
