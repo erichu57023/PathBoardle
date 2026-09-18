@@ -177,7 +177,7 @@ function handleGuess() {
     gameState.guessesTaken++;
 
     // Check if correct (case-insensitive comparison)
-    if (btoa(userGuess.toLowerCase()) === answer.toLowerCase()) {
+    if (userGuess.toLowerCase() === atob(answer).toLowerCase()) {
         gameState.completed = 1;
     } else if (gameState.guessesTaken === clues.length) {
         gameState.completed = -1;

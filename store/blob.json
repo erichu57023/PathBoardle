@@ -1,0 +1,76 @@
+[
+    {
+        "id": 1,
+        "c1": "Chem",
+        "c2": "Lipids",
+        "answer": "RmFtaWxpYWwgTGlwb3Byb3RlaW4gTGlwYXNlIGRlZmljaWVuY3kgKFR5cGUgSSk=",
+        "clues": [
+            "VGhpcyBjb25kaXRpb24gcmVzdWx0cyBmcm9tIGxvc3Mgb2YgdGhlIGVuenltZSB0aGF0IGJyZWFrcyBkb3duIHRyaWdseWNlcmlkZXMgY2FycmllZCBpbiBjaHlsb21pY3JvbnMgYW5kIFZMREwsIGFsbG93aW5nIHRoZW0gdG8gYWNjdW11bGF0ZSBpbiBjaXJjdWxhdGlvbi4=",
+            "VGhpcyBjb25kaXRpb24gY2xhc3NpY2FsbHkgcHJlc2VudHMgaW4gY2hpbGRob29kIHdpdGggc2V2ZXJlIGh5cGVydHJpZ2x5Y2VyaWRlbWlhLCBlcnVwdGl2ZSB4YW50aG9tYXMsIGFuZCByZWN1cnJlbnQgcGFuY3JlYXRpdGlzLiBbaW1hZ2Vd",
+            "VGhpcyBjb25kaXRpb24gaXMgY2xhc3NpZmllZCBhcyBUeXBlIEkgaHlwZXJsaXBpZGVtaWEgYW5kIHByZXNlbnRzIHByaW1hcmlseSB3aXRoIGh5cGVydHJpZ2x5Y2VyaWRlbWlhLg=="
+        ]
+    },{
+        "id": 2,
+        "c1": "Chem",
+        "c2": "Lipids",
+        "answer": "RmFtaWxpYWwgQXBvQy1JSSBkZWZpY2llbmN5IChUeXBlIEkvVik=",
+        "clues": [
+            "VGhpcyBjb25kaXRpb24gcmVzdWx0cyBmcm9tIGxvc3Mgb2YgdGhlIGNvZmFjdG9yIHRoYXQgbm9ybWFsbHkgYWN0aXZhdGVzIGxpcG9wcm90ZWluIGxpcGFzZSwgbWltaWNraW5nIGRlZmljaWVuY3kgb2YgdGhlIGVuenltZSBpdHNlbGYu",
+            "VGhpcyBjb25kaXRpb24gcHJlc2VudHMgaW4gY2hpbGRob29kIHdpdGggc2V2ZXJlIGh5cGVydHJpZ2x5Y2VyaWRlbWlhLCBlcnVwdGl2ZSB4YW50aG9tYXMsIGFuZCByZWN1cnJlbnQgcGFuY3JlYXRpdGlzLg==",
+            "VGhpcyBjb25kaXRpb24gaXMgY2xhc3NpZmllZCBhcyBUeXBlIEkgb3IgVHlwZSBWIGh5cGVybGlwaWRlbWlhIGFuZCBwcmVzZW50cyBwcmltYXJpbHkgd2l0aCBoeXBlcnRyaWdseWNlcmlkZW1pYS4="
+        ]
+    },{
+        "id": 3,
+        "c1": "Chem",
+        "c2": "Lipids",
+        "answer": "RmFtaWxpYWwgaHlwZXJjaG9sZXN0ZXJvbGVtaWEgKFR5cGUgSUlhKQ==",
+        "clues": [
+            "VGhpcyBjb25kaXRpb24gaXMgY2F1c2VkIGJ5IG11dGF0aW9ucyBpbiBlaXRoZXIgdGhlIExETCByZWNlcHRvciBvciBpdHMgbGlnYW5kLCBBcG8gQjEwMCwgaW1wYWlyaW5nIGhlcGF0aWMgY2xlYXJhbmNlIG9mIExETC4=",
+            "SW4gaXRzIGhvbW96eWdvdXMgZm9ybSwgdGhpcyBjb25kaXRpb24gY2FuIGNhdXNlIGV4dHJlbWVseSBoaWdoIExETCBsZXZlbHMgYW5kIG15b2NhcmRpYWwgaW5mYXJjdGlvbiBpbiBjaGlsZGhvb2Qgb3IgeW91bmcgYWR1bHRob29kLg==",
+            "VGhpcyBjb25kaXRpb24gbGVhZHMgdG8gcHJlbWF0dXJlIGF0aGVyb3NjbGVyb3NpcyBhbmQgY2xhc3NpY2FsbHkgY2F1c2VzIHRlbmRpbm91cyB4YW50aG9tYXMsIGVzcGVjaWFsbHkgYXQgdGhlIEFjaGlsbGVzIHRlbmRvbi4=",
+            "VGhpcyBjb25kaXRpb24gaXMgY2xhc3NpZmllZCBhcyBUeXBlIElJYSBoeXBlcmxpcGlkZW1pYSBhbmQgcHJlc2VudHMgcHJpbWFyaWx5IHdpdGggaHlwZXJjaG9sZXN0ZXJvbGVtaWEu"
+        ]
+    },{
+        "id": 4,
+        "c1": "Chem",
+        "c2": "Lipids",
+        "answer": "RmFtaWxpYWwgZHlzYmV0YWxpcG9wcm90ZWluZW1pYSAoVHlwZSBJSUkp",
+        "clues": [
+            "VGhpcyBjb25kaXRpb24gaXMgY2F1c2VkIGJ5IEFwb0UgbXV0YXRpb25zLCBtb3N0IGNsYXNzaWNhbGx5IHRoZSBFMi9FMiBnZW5vdHlwZSwgaW1wYWlyaW5nIGhlcGF0aWMgY2xlYXJhbmNlIG9mIGNoeWxvbWljcm9uIGFuZCBWTERMIHJlbW5hbnRzLg==",
+            "VGhpcyBjb25kaXRpb24gY2xhc3NpY2FsbHkgY2F1c2VzIHBhbG1hciB4YW50aG9tYXMgKHhhbnRob21hIHN0cmlhdHVtIHBhbG1hcmUpLCBhIG5lYXJseSBwYXRob2dub21vbmljIGZpbmRpbmcu",
+            "VGhpcyBjb25kaXRpb24gcHJlc2VudHMgd2l0aCBhIG1peGVkIHBhdHRlcm4gb2YgYm90aCBoeXBlcnRyaWdseWNlcmlkZW1pYSBhbmQgaHlwZXJjaG9sZXN0ZXJvbGVtaWEgYW5kIGlzIGNsYXNzaWZpZWQgYXMgVHlwZSBJSUkgaHlwZXJsaXBpZGVtaWEu"   
+        ]
+    },{
+        "id": 5,
+        "c1": "Chem",
+        "c2": "Lipids",
+        "answer": "RmFtaWxpYWwgY29tYmluZWQgaHlwZXJsaXBpZGVtaWEgKFR5cGUgSUliL0lWKQ==",
+        "clues": [
+            "VGhpcyBjb25kaXRpb24gcmVzdWx0cyBmcm9tIGhlcGF0aWMgb3ZlcnByb2R1Y3Rpb24gb2YgQXBvLUItY29udGFpbmluZyBsaXBvcHJvdGVpbnMgYWxvbmcgd2l0aCBzbG93ZWQgY2xlYXJhbmNlIG9mIExETCBhbmQgdHJpZ2x5Y2VyaWRlLXJpY2ggbGlwb3Byb3RlaW5zLg==",
+            "VGhpcyBjb25kaXRpb24gaXMgb25lIG9mIHRoZSBtb3N0IGNvbW1vbiBpbmhlcml0ZWQgZHlzbGlwaWRlbWlhcywgb2Z0ZW4gdW5tYXNrZWQgb3Igd29yc2VuZWQgYnkgb2Jlc2l0eSBhbmQgaW5zdWxpbiByZXNpc3RhbmNlLg==",
+            "VGhpcyBjb25kaXRpb24gaGFzIGEgdmFyaWFibGUgcGhlbm90eXBlLCBhcHBlYXJpbmcgYXMgaXNvbGF0ZWQgaHlwZXJjaG9sZXN0ZXJvbGVtaWEsIGlzb2xhdGVkIGh5cGVydHJpZ2x5Y2VyaWRlbWlhLCBvciBhIG1peGVkIHBhdHRlcm4gaW4gZGlmZmVyZW50IGFmZmVjdGVkIGZhbWlseSBtZW1iZXJzLg==",
+            "VGhpcyBjb25kaXRpb24gbGVhZHMgdG8gcHJlbWF0dXJlIGF0aGVyb3NjbGVyb3NpcyBhbmQgaXMgY2xhc3NpZmllZCBhcyBUeXBlIElJYi9JViBoeXBlcmxpcGlkZW1pYS4="
+        ]
+    },{
+        "id": 6,
+        "c1": "Chem",
+        "c2": "Lipids",
+        "answer": "RmFtaWxpYWwgaHlwZXJ0cmlnbHljZXJpZGVtaWEgKFR5cGUgSVYvVik=",
+        "clues": [
+            "VGhpcyBjb25kaXRpb24gaXMgZHJpdmVuIGJ5IGluY3JlYXNlZCBoZXBhdGljIFZMREwgcHJvZHVjdGlvbiBhbmQgaXMgb2Z0ZW4gd29yc2VuZWQgYnkgY2hyb25pYyBjb25kaXRpb25zIHN1Y2ggYXMgZGlhYmV0ZXMgbWVsbGl0dXMu",
+            "Q2FuIGNhdXNlIGVydXB0aXZlIHhhbnRob21hcyBhbmQgY2FycmllcyBhIHJpc2sgb2YgYWN1dGUgcGFuY3JlYXRpdGlzIHdoZW4gdHJpZ2x5Y2VyaWRlcyBhcmUgbWFya2VkbHkgZWxldmF0ZWQu",
+            "Q2xhc3NpZmllZCBhcyBUeXBlIElWL1YgaHlwZXJsaXBpZGVtaWEgYW5kIHByZXNlbnRzIHByaW1hcmlseSB3aXRoIGh5cGVydHJpZ2x5Y2VyaWRlbWlhLg=="
+        ]
+    },{
+        "id": 7,
+        "c1": "Chem",
+        "c2": "Lipids",
+        "answer": "VGFuZ2llciBkaXNlYXNl",
+        "clues": [
+            "VGhpcyBjb25kaXRpb24gaXMgYW4gYXV0b3NvbWFsIHJlY2Vzc2l2ZSBkaXNvcmRlciBjYXVzaW5nIHZlcnkgbG93IG9yIGFic2VudCBIREwgYW5kIEFwb0ExLg==",
+            "VGhpcyBjb25kaXRpb24gcHJlc2VudHMgd2l0aCBsb3cgdG90YWwgY2hvbGVzdGVyb2wgYnV0IG5vcm1hbCB0cmlnbHljZXJpZGVzLg==",
+            "Q2hvbGVzdGVyb2wgZXN0ZXJzIGFyZSBkZXBvc2l0ZWQgaW4gdGlzc3VlcyBpbmNsdWRpbmcgbHltcGggbm9kZXMsIHNwbGVlbiwgYW5kIHZhc2N1bGF0dXJlLg==",
+            "Q2xhc3NpYyBmaW5kaW5nIGlzIGVubGFyZ2VkLCB5ZWxsb3ctb3JhbmdlIHRvbnNpbHMu"
+        ]
+    }
+]

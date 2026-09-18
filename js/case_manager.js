@@ -22,7 +22,7 @@ function shuffle(array) {
 }
 
 // Pull case index information from remote
-const cases_list = await fetch_json("/store/blob.json");
+const cases_list = await fetch_json("../store/blob.json");
 const n_cases = cases_list.length;
 const id_list = [];
 const c1_list = {};
@@ -48,10 +48,10 @@ const caseManager = {
     c1: c1_list,
     c2: c2_list,
     n_clues,
-    dict: await fetch_json("/store/dict.json"),
+    dict: await fetch_json("../store/dict.json"),
     history,
     cases,
-    img_urls: await fetch_json("/store/img.json"),
+    img_urls: await fetch_json("../store/img.json"),
     
     // Fetch case details from remote
     fetch_case(case_id) {
