@@ -1,11 +1,11 @@
 {
     "Chem": [
-        "Familial Lipoprotein Lipase deficiency (Type I)",
-        "Familial ApoC-II deficiency (Type I/V)",
-        "Familial hypercholesterolemia (Type IIa)",
-        "Familial dysbetalipoproteinemia (Type III)",
-        "Familial combined hyperlipidemia (Type IIb/IV)",
-        "Familial hypertriglyceridemia (Type IV/V)",
+        "Familial Lipoprotein Lipase deficiency",
+        "Familial ApoC-II deficiency",
+        "Familial hypercholesterolemia",
+        "Familial dysbetalipoproteinemia",
+        "Familial combined hyperlipidemia",
+        "Familial hypertriglyceridemia",
         "Tangier disease"
     ]
 }
