@@ -69,9 +69,9 @@ function renderGuesses() {
             DOM.guessCounter.style.color = `${guessesLeft < 3 ? rootStyles.getPropertyValue('--incomplete-color') : ""}`;
             break;
         case 1:
-            incorrectCount--;
             DOM.guessCounter.textContent = `Solved in ${incorrectCount} / ${clues.length}`;
             DOM.guessCounter.style.color = correctStyle.colorStr;
+            incorrectCount--;
             break;
         case -1:
             DOM.guessCounter.textContent = "No guesses remaining";
