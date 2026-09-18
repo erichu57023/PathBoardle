@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PathBoardle</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/styles.css">
+
+	<!-- Parse correct theme before rendering to prevent theme flicker -->
+	<script type="module" blocking="render">
+		import {switchTheme} from "/js/elements.js"
+		switchTheme("browser-default")
+  	</script>
+
+	<!-- Defer running the main js logic until HTML has loaded -->
+	<script type="module" src="/js/main.js" defer></script>
+</head>
+
+<body>
+	<!-- Global header -->
+	<header>
+		<!-- Left: Back Button (hidden by default) -->
+		<div class="header-left">
+			<a href="/" id="back-btn" class="hidden">&larr; Case list</a>
+		</div>
+		
+		<!-- Center: Title -->
+		<div class="header-center">
+			<a href="/" id="app-title">PathBoardle</a>
+		</div>
+		
+		<!-- Right: Options Dropdown -->
+		<div class="header-right">
+			<div class="dropdown-container">
+				<button id="opts-btn">&#x2699;</button>
+				<ul id="opts-dropdown" class="hidden">
+					<li><a href="#" id="opts-theme"></a></li>
+					<li><a href="#" id="opts-reset">Reset progress</a></li>
+					<li><a href="#" id="opts-about">About</a></li>
+				</ul>
+			</div>
+        </div>
+	</header>
+
+	<main>		
+		<!-- MENU VIEW: Shows the list of available cases -->
+		<div id="menu-view" class="hidden">
+			<div id="case-select-container">
+				<!-- Filter dropdown: Shows the list of available cases -->
+				<div id="filter" class="dropdown-container">
+					<button id="filter-btn">
+						<span id="filter-icon">&#x25BC;</span>
+						<span id="filter-label">Filter:</span>
+						<span id="filter-selection">All cases</span> 
+					</button>
+						
+					<ul id="filter-dropdown" class="hidden">
+						<li><a href="#">All Cases</a></li>
+						<hr>
+						<li><a href="#" class="cat chem">Chem</a></li>
+						<li><a href="#" class="subcat lipids">Lipids</a></li>
+						<hr>
+						<li><a href="#" class="cat micro">Micro</a></li>
+						<li><a href="#" class="cat ap">AP</a></li>
+						<li><a href="#" class="cat heme-coag">Hemepath/Coagulation</a></li>
+						<hr>
+						<li><a href="#" class="cat bone-soft">Bone & Soft Tissue</a></li>
+						<li><a href="#" class="cat breast">Breast</a></li>
+						<li><a href="#" class="cat cyto">Cytology</a></li>
+						<li><a href="#" class="cat endo">Endocrine</a></li>
+						<li><a href="#" class="cat forensics">Forensics</a></li>
+						<li><a href="#" class="cat gi">Gastrointestinal</a></li>
+						<li><a href="#" class="cat gu">Genitourinary</a></li>
+						<li><a href="#" class="cat gyn">Gynecology</a></li>
+						<li><a href="#" class="cat head-neck">Head & Neck</a></li>
+						<li><a href="#" class="cat hep-panc">Hepatobiliary/Pancreas</a></li>
+						<li><a href="#" class="cat peds">Pediatrics</a></li>
+						<li><a href="#" class="cat skin">Skin</a></li>
+						<li><a href="#" class="cat thoracic">Thoracic</a></li>
+					</ul>
+				</div>
+				
+				<!-- Case select cluster: buttons to select cases -->
+				<div id="case-select-btns" class="btn-cluster">
+					<button id="play-order-btn">Play in order</button>
+					<button id="play-random-btn">Play randomized</button>
+				</div>
+
+				<!-- Throwaway div for css grid balancing -->
+				<div></div>
+			</div>
+			<hr>
+			<!-- Case list -->
+			<div id="menu-container"></div>
+		</div>
+
+		<!-- GAME VIEW: Hidden by default -->
+		<div id="game-view" class="hidden">
+			<div class="game-header">
+				<h2 id="case-title"></h2>
+				<span id="guess-counter"> </span>
+			</div>
+
+			<!-- Clues will be injected here -->
+			<div id="clues-container"></div>
+
+			<!-- Past guesses will be injected here -->
+			<ul id="guess-history"></ul>
+
+			<!-- Win/loss message container -->
+			<div id="game-over-message" class="hidden"></div>
+
+			<!-- Input area -->
+			<div id="input-container">
+				<div class="autocomplete-wrapper">
+					<input 
+						type="text" 
+						id="input-box" 
+						placeholder="Guess the diagnosis..." 
+						autocomplete="off"
+					>
+					<!-- Autocomplete selection menu -->
+					<ul id="autocomplete-dropdown" class="hidden"></ul>
+				</div>
+				
+				<button id="submit-btn" disabled>Submit</button>
+			</div>
+
+			<!-- Buttons to navigate case queue -->
+			<div id="navigation-btns">
+				<button id="prev-case-btn"></button>
+				<button id="next-case-btn"></button>
+			</div>
+		</div>
+	</main>
+
+	<!-- ABOUT MODAL: Shows an about page -->
+	<div id="about-modal" class="modal hidden">
+        <div class="modal-overlay" id="about-overlay"></div>
+        <div class="modal-content">
+            <h2>About PathBoardle</h2>
+            <p>
+				A self-paced, boards-relevant guess-the-diagnosis game for pathologists.<br>
+            	Cases written by Katrina Jiang, MD (PGY-2). <br>
+				Website by Eric Hu (GS3).<br>
+				<hr>
+				If you would like to write cases and be listed as a contributor, 
+				<a href="mailto:pathboardle@gmail.com" class="hyper">send us an email</a>!
+				<hr>
+				©2026 PathBoardle. All rights reserved.
+			</p>
+            <button id="close-about-btn" class="close-modal-btn">Close</button>
+        </div>
+    </div>
+
+	<!-- RESET MODAL: Shows a reset confirmation -->
+	<div id="reset-modal" class="modal hidden">
+        <div class="modal-overlay" id="reset-overlay"></div>
+        <div class="modal-content">
+            <h2>Confirm reset</h2>
+            <p>Are you sure you want to reset? All progress will be deleted.</p>
+			<div class="btn-cluster">
+				<button id="close-reset-btn" class="close-modal-btn">No</button>
+				<button id="confirm-reset-btn">Reset</button>
+			</div>
+        </div>
+    </div>
+
+</body>
+</html>

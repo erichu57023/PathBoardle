@@ -1,0 +1,75 @@
+.chem {
+    color: #215a6c;
+    background-color: #c6dbe1;
+}
+
+.lipids {
+    color: #473821;
+    background-color: #ffd76e;
+}
+
+.micro {
+    color: #d4edbc;
+    background-color: #5fac8d;
+}
+.ap {
+    color: #423671;
+    background-color: #9e7cff;
+}
+.heme-coag {
+    color: #ffcfc9;
+    background-color: #ff8080;
+}
+
+.bone-soft {
+    color: #473821;
+    background-color: #ffadad;
+}
+.breast {
+    color: #b10202;
+    background-color: #ffe4e3;
+}
+.cyto {
+    color: #b10202;
+    background-color: #95d9e2;
+}
+.endo {
+    color: #473821;
+    background-color: #fffcb9;
+}
+.forensics {
+    color: black;
+    background-color: #c5c5c5;
+}
+.gi {
+    color: #11734b;
+    background-color: #beeccb;
+}
+.gu {
+    color: #473821;
+    background-color: #c5ecb0;
+}
+.gyn {
+    color: #5a3286;
+    background-color: #e6cff2;
+}
+.head-neck {
+    color: #215a6c;
+    background-color: #9dbfc9;
+}
+.hep-panc {
+    color: #b10202;
+    background-color: #6fcfb9;
+}
+.peds {
+    color: black;
+    background-color: #8aa5ff;
+}
+.skin {
+    color: black;
+    background-color: #d5d2ff;
+}
+.thoracic {
+    color: black;
+    background-color: #dda0c8;
+}
