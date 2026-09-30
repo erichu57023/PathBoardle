@@ -77,7 +77,7 @@ const caseManager = {
     },
 
     fetch_history(case_0id) {
-        return JSON.parse(localStorage.getItem('caseHistory'))[case_0id + 1];
+        return JSON.parse(localStorage.getItem('caseHistory'))?.[case_0id + 1];
     },
 
     // Update a case queue in sessionStorage based on active filters, and returns the queue
