@@ -44,6 +44,34 @@ export const DOM = {
 };
 
 
+// Maps question categories to the appropriate CSS style 
+export const categoryClassMap = {
+    "": "hidden",
+    "AP": "ap",
+    "Hemepath/Coagulation": "heme-coag",
+    "Bacteria": "bacteria",
+    "Bone & Soft Tissue": "bone-soft",
+    "Breast": "breast",
+    "Chem": "chem",
+    "Cytology": "cyto",
+    "Endocrine": "endo",
+    "Forensics": "forensics",
+    "Fungi": "fungi",
+    "Gastrointestinal": "gi",
+    "Genitourinary": "gu",
+    "Gynecology": "gyn",
+    "Head & Neck": "head-neck",
+    "Hepatobiliary/Pancreas": "hep-panc",
+    "Lipids": "lipids",
+    "Micro": "micro",
+    "Parasites": "parasites",
+    "Pediatrics": "peds",
+    "Skin": "skin",
+    "Thoracic": "thoracic",
+    "Viruses": "viruses"
+}
+
+
 // Set theme based on user preference
 export function switchTheme(theme) {
     switch (theme) {

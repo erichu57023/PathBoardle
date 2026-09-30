@@ -97,10 +97,10 @@ function hookListeners() {
 /* -------- MAIN -------- */
 async function main() {
     // Parse the URL to see if a specific case is requested (e.g., ?case=1)
-    const caseNum = parseInt((new URLSearchParams(window.location.search)).get('case'));
+    const case_0id = parseInt((new URLSearchParams(window.location.search)).get('case')) - 1;
 
     // Transition to game UI if case id is valid, otherwise transition to menu
-    caseManager.case_exists(caseNum) ? await showGame(caseNum) : showMenu();
+    caseManager.case_exists(case_0id) ? await showGame(case_0id) : showMenu();
 
     // Connect listeners to make elements interactible
     hookListeners()

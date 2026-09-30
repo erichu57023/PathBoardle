@@ -46,7 +46,7 @@
 	<main>		
 		<!-- MENU VIEW: Shows the list of available cases -->
 		<div id="menu-view" class="hidden">
-			<div id="case-select-container">
+			<div id="filter-container">
 				<!-- Filter dropdown: Shows the list of available cases -->
 				<div id="filter" class="dropdown-container">
 					<button id="filter-btn">
@@ -60,8 +60,12 @@
 						<hr>
 						<li><a href="#" class="cat chem">Chem</a></li>
 						<li><a href="#" class="subcat lipids">Lipids</a></li>
-						<hr>
 						<li><a href="#" class="cat micro">Micro</a></li>
+						<li><a href="#" class="subcat bacteria">Bacteria</a></li>
+						<li><a href="#" class="subcat viruses">Viruses</a></li>
+						<li><a href="#" class="subcat fungi">Fungi</a></li>
+						<li><a href="#" class="subcat parasites">Parasites</a></li>
+						<hr>
 						<li><a href="#" class="cat ap">AP</a></li>
 						<li><a href="#" class="cat heme-coag">Hemepath/Coagulation</a></li>
 						<hr>
@@ -80,19 +84,16 @@
 						<li><a href="#" class="cat thoracic">Thoracic</a></li>
 					</ul>
 				</div>
-				
-				<!-- Case select cluster: buttons to select cases -->
-				<div id="case-select-btns" class="btn-cluster">
-					<button id="play-order-btn">Play in order</button>
-					<button id="play-random-btn">Play randomized</button>
-				</div>
-
-				<!-- Throwaway div for css grid balancing -->
-				<div></div>
 			</div>
-			<hr>
+			
 			<!-- Case list -->
 			<div id="menu-container"></div>
+
+			<!-- Case select cluster: buttons to select cases -->
+			<div id="case-select-btns" class="btn-cluster">
+				<button id="play-order-btn">Play in order</button>
+				<button id="play-random-btn">Play randomized</button>
+			</div>
 		</div>
 
 		<!-- GAME VIEW: Hidden by default -->
@@ -102,35 +103,39 @@
 				<span id="guess-counter"> </span>
 			</div>
 
-			<!-- Clues will be injected here -->
-			<div id="clues-container"></div>
+			<div id="game-scrollable">
+				<!-- Clues will be injected here -->
+				<div id="clues-container"></div>
 
-			<!-- Past guesses will be injected here -->
-			<ul id="guess-history"></ul>
-
-			<!-- Win/loss message container -->
-			<div id="game-over-message" class="hidden"></div>
-
-			<!-- Input area -->
-			<div id="input-container">
-				<div class="autocomplete-wrapper">
-					<input 
-						type="text" 
-						id="input-box" 
-						placeholder="Guess the diagnosis..." 
-						autocomplete="off"
-					>
-					<!-- Autocomplete selection menu -->
-					<ul id="autocomplete-dropdown" class="hidden"></ul>
-				</div>
-				
-				<button id="submit-btn" disabled>Submit</button>
+				<!-- Past guesses will be injected here -->
+				<ul id="guess-history"></ul>
 			</div>
 
-			<!-- Buttons to navigate case queue -->
-			<div id="navigation-btns">
-				<button id="prev-case-btn"></button>
-				<button id="next-case-btn"></button>
+			<div id="game-fixed">
+				<!-- Win/loss message container -->
+				<div id="game-over-message" class="hidden"></div>
+
+				<!-- Input area -->
+				<div id="input-container">
+					<div class="autocomplete-wrapper">
+						<input 
+							type="text" 
+							id="input-box" 
+							placeholder="Guess the diagnosis..." 
+							autocomplete="off"
+						>
+						<!-- Autocomplete selection menu -->
+						<ul id="autocomplete-dropdown" class="hidden"></ul>
+					</div>
+					
+					<button id="submit-btn" disabled>Submit</button>
+				</div>
+
+				<!-- Buttons to navigate case queue -->
+				<div id="navigation-btns">
+					<button id="prev-case-btn"></button>
+					<button id="next-case-btn"></button>
+				</div>
 			</div>
 		</div>
 	</main>

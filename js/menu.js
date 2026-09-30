@@ -1,30 +1,9 @@
 /* -------- SETUP -------- */
 // Core imports
-import { DOM } from "./elements.js"
+import { DOM, categoryClassMap } from "./elements.js"
 import caseManager from './case_manager.js';
 
 // Locals
-const categoryClassMap = {
-    "": "hidden",
-    "AP": "ap",
-    "Hemepath/Coagulation": "heme-coag",
-    "Bone & Soft Tissue": "bone-soft",
-    "Breast": "breast",
-    "Chem": "chem",
-    "Cytology": "cyto",
-    "Endocrine": "endo",
-    "Forensics": "forensics",
-    "Gastrointestinal": "gi",
-    "Genitourinary": "gu",
-    "Gynecology": "gyn",
-    "Head & Neck": "head-neck",
-    "Hepatobiliary/Pancreas": "hep-panc",
-    "Lipids": "lipids",
-    "Micro": "micro",
-    "Pediatrics": "peds",
-    "Skin": "skin",
-    "Thoracic": "thoracic"
-}
 let active_filter = "All Cases";
 const filterEmptyNode = document.createElement("p")
 filterEmptyNode.textContent = "No cases found for this category.";
@@ -33,25 +12,21 @@ filterEmptyNode.textContent = "No cases found for this category.";
 
 // Get a valid list of cases which match a filter category
 function getCaseList(filt_label) {
+    const allCases = Array.from({length: caseManager.n_cases}, (_, index) => index);
     // If filter is not specified, show all cases
     if (filt_label == undefined || filt_label === "All Cases" ) {
-        return Array.from({length: caseManager.n_cases}, (_, index) => index);
+        return allCases;
     }
     // Otherwise, return a filtered list of case indices
-    let indices = [];
-    for (let i = 0; i < caseManager.n_cases; i++) {
-        const caseID = caseManager.id[i];
-        if (caseManager.c1[caseID] === filt_label || caseManager.c2[caseID] === filt_label) {
-            indices.push(i);
-        }
-    }
-    return indices
+    return allCases.filter((element) => {
+        return caseManager.c1[element] === filt_label || caseManager.c2[element] === filt_label
+    });
 }
 
 // Build a single case card element in memory
 function buildCaseCardElement(list_idx) {
-    const caseID = caseManager.id[list_idx];
-    const caseProgress = caseManager.history[caseID];
+    const case_1id = list_idx + 1;
+    const caseProgress = caseManager.fetch_history(list_idx);
 
     // Load progress values if the player has seen this case
     let statusCls, statusTxt;
@@ -59,7 +34,7 @@ function buildCaseCardElement(list_idx) {
         switch (caseProgress.completed) {
             case 1: 
                 statusCls = 'solved';
-                statusTxt = `Solved in ${caseProgress.guessesTaken} / ${caseManager.n_clues[caseID]}`;
+                statusTxt = `Solved in ${caseProgress.guessesTaken} / ${caseManager.n_clues[list_idx]}`;
                 break;
             case -1:             
                 statusCls = 'failed';
@@ -78,18 +53,18 @@ function buildCaseCardElement(list_idx) {
 
     // Create case card as a clickable element
     const caseCard = document.createElement('a');
-    caseCard.href = `?case=${caseID}`; 
+    caseCard.href = `?case=${case_1id}`; 
     caseCard.className = `case-card ${statusCls}`;
 
     // Extract category and subcategory
-    const catDiv = caseManager.c1[caseID];
+    const catDiv = caseManager.c1[list_idx];
     const catCls = catDiv.toLowerCase();
-    const subCatDiv = caseManager.c2[caseID];
+    const subCatDiv = caseManager.c2[list_idx];
     const subCatCls = categoryClassMap[subCatDiv] ?? "hidden";
     
     // Populate the inner HTML and append to DOM
     caseCard.innerHTML = `
-        <div class="case-title">Case #${caseID}</div>
+        <div class="case-title">Case ${case_1id}</div>
         <div class="case-category ${catCls}">${catDiv}</div>
         <div class="case-category case-subcategory ${subCatCls}">${subCatDiv}</div>
         <div class="case-status">${statusTxt}</div>
@@ -146,10 +121,8 @@ export function renderMenu() {
     if (filt_idxs.length) {
         // Build a card element for each case id and append to a fragment
         const caseCards = document.createDocumentFragment();
-        const caseQueue = [];
         for (let i = 0; i < filt_idxs.length; i++) {
             caseCards.appendChild(buildCaseCardElement(filt_idxs[i]));
-            caseQueue.push(caseManager.id[filt_idxs[i]])
         }
 
         // Store the case queue in the case manager

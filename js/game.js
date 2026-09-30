@@ -6,18 +6,18 @@ import { returnHome } from './main.js';
 
 // Locals
 let currentID, answer, clues, gameState, dictionary;
-const rootStyles = getComputedStyle(DOM.root);
 const correctStyle = {
-    msgTxt: "Correct!",
-    colorStr: rootStyles.getPropertyValue('--solved-color')
+    msgTxt: 'Correct!',
+    colorStr: 'var(--solved-color)'
 };
 const incorrectStyle = {
-    msgTxt: "Out of guesses", 
-    colorStr: rootStyles.getPropertyValue('--failed-color')
+    msgTxt: 'Out of guesses', 
+    colorStr: 'var(--failed-color)'
 };
-const prevCaseTxt = "\u2190 Previous case";
-const nextCaseTxt = "Next case \u2192";
-const goHomeTxt = "Back to menu";
+const prevCaseTxt = "\u2190 Previous";
+const nextCaseTxt = "Next \u2192";
+const goHomeTxt = "Menu";
+const imgRegEx = /\[image=(.*?)\]/;
 
 /* -------- RENDERING HELPER FUNCTIONS -------- */
 // Close autocomplete dropdown menu
@@ -28,14 +28,14 @@ function closeDropdown() {
 
 // Draws the clues based on the guess count
 async function renderCaseDetails() {
-    gameState = caseManager.history[currentID] || {
+    gameState = caseManager.fetch_history(currentID) || {
         completed: 0, // 0 = 'in_progress', 1 = 'solved', -1 = 'failed'
         guessesTaken: 0,
         guessList: []
     };
 
     // Set the title
-    DOM.caseTitle.textContent = `Case #${currentID}`;
+    DOM.caseTitle.textContent = `Case ${currentID + 1}`;
 
     // Render clues (1 initial clue plus 1 for every incorrect guess, or all if game over)
     const numVisibleClues = gameState.completed ? clues.length : Math.min(gameState.guessesTaken + 1, clues.length);
@@ -45,12 +45,11 @@ async function renderCaseDetails() {
         clueDiv.className = 'clue';
         
         // Parse clue for internal images
-        let clueText = atob(clues[i]);
-        if (clueText.includes("[image]")) {
-            const clueImgURL = caseManager.get_image_URL(currentID, i + 1);
-            const clueImgHTML = `<br><div class=clueimg><img src=${clueImgURL}></div>`;
-            clueText = clueText.replace("[image]", clueImgHTML);
-        }
+        const clueText = atob(clues[i]).replace(imgRegEx, (_, capture) => {
+            const clueImgURL = caseManager.get_image_URL(capture);
+            return `<br><div class=clueimg><img src=${clueImgURL}></div>`;
+        });
+
         clueDiv.innerHTML = clueText;
         cluesFragment.appendChild(clueDiv);
     }
@@ -66,7 +65,7 @@ function renderGuesses() {
     switch (gameState.completed) {
         case 0:
             DOM.guessCounter.textContent = `${guessesLeft} ${guessesLeft == 1 ? "guess" : "guesses"} remaining`;
-            DOM.guessCounter.style.color = `${guessesLeft < 3 ? rootStyles.getPropertyValue('--incomplete-color') : ""}`;
+            DOM.guessCounter.style.color = `${guessesLeft < 3 ? 'var(--incomplete-color)' : ''}`;
             break;
         case 1:
             DOM.guessCounter.textContent = `Solved in ${incorrectCount} / ${clues.length}`;
@@ -224,11 +223,11 @@ function hookListeners() {
 }
 
 /* -------- MAIN -------- */
-export function renderGame(caseID) {
+export async function renderGame(caseID) {
     // Populate locals with selected case
     if (caseID !== undefined) {
         currentID = caseID;
-        ({answer, clues} = caseManager.fetch_case(currentID));
+        ([answer, clues] = await caseManager.fetch_case(currentID));
         dictionary = caseManager.valid_answers(currentID);
     } else if (currentID === undefined) {
         throw new Error("Attempted to render a case without a valid ID");

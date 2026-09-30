@@ -2,7 +2,6 @@
     color: #215a6c;
     background-color: #c6dbe1;
 }
-
 .lipids {
     color: #473821;
     background-color: #ffd76e;
@@ -12,6 +11,23 @@
     color: #d4edbc;
     background-color: #5fac8d;
 }
+.bacteria {
+    color: #11734b;
+    background-color: #87ff14;
+}
+.viruses {
+    color: #ffcfc9;
+    background-color: #b10202;
+}
+.fungi {
+    color: #bfe0f6;
+    background-color: #0a53a8;
+}
+.parasites {
+    color: #473821;
+    background-color: #ffe5a0;
+}
+
 .ap {
     color: #423671;
     background-color: #9e7cff;
