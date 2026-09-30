@@ -14,9 +14,17 @@ const incorrectStyle = {
     msgTxt: 'Out of guesses', 
     colorStr: 'var(--failed-color)'
 };
-const prevCaseTxt = "\u2190 Previous";
-const nextCaseTxt = "Next \u2192";
-const goHomeTxt = "Menu";
+const prevCaseStyle = {
+    msgTxt: '\u2190 Previous',
+    colorStr: 'var(--primary-color)'
+}
+const nextCaseStyle = {
+    msgTxt: 'Next \u2192',
+    colorStr: 'var(--primary-color)'
+}
+const goHomeStyle = {
+    msgTxt: "Menu"
+}
 const imgRegEx = /\[image=(.*?)\]/;
 
 /* -------- RENDERING HELPER FUNCTIONS -------- */
@@ -45,7 +53,7 @@ async function renderCaseDetails() {
         clueDiv.className = 'clue';
         
         // Parse clue for internal images
-        const clueText = atob(clues[i]).replace(imgRegEx, (_, capture) => {
+        const clueText = clues[i].replace(imgRegEx, (_, capture) => {
             const clueImgURL = caseManager.get_image_URL(capture);
             return `<br><div class=clueimg><img src=${clueImgURL}></div>`;
         });
@@ -92,7 +100,7 @@ function renderGuesses() {
 function renderGameOver() {
     // Green dialog if correct, otherwise red
     const {msgTxt, colorStr} = (gameState.completed === 1) ? correctStyle : incorrectStyle;
-    DOM.gameOverMsg.innerHTML = `<h3>${msgTxt}</h3><p>The diagnosis was <strong>${atob(answer)}</strong>.</p>`;
+    DOM.gameOverMsg.innerHTML = `<h3>${msgTxt}</h3><p>The diagnosis was <strong>${answer}</strong>.</p>`;
     DOM.gameOverMsg.style.color = colorStr; // Green
     DOM.gameOverMsg.style.borderColor = colorStr;
 
@@ -105,24 +113,27 @@ function renderNavButtons() {
     // Next and previous navigation button logic
     const [prevID, nextID] = caseManager.adjacent_cases(currentID);
     if (!isNaN(prevID)) {
-        DOM.prevCaseBtn.textContent = prevCaseTxt;
+        DOM.prevCaseBtn.textContent = prevCaseStyle.msgTxt;
+        DOM.prevCaseBtn.classList.remove("go-home-btn");
         DOM.prevCaseBtn.onclick = (() => {
             caseManager.goto_case(prevID);
         });
     } else {
-        DOM.prevCaseBtn.textContent = goHomeTxt;
+        DOM.prevCaseBtn.textContent = goHomeStyle.msgTxt;
+        DOM.prevCaseBtn.classList.add("go-home-btn");
         DOM.prevCaseBtn.onclick = returnHome;
     }
     if (!isNaN(nextID)) {
-        DOM.nextCaseBtn.textContent = nextCaseTxt;
+        DOM.nextCaseBtn.textContent = nextCaseStyle.msgTxt;
+        DOM.nextCaseBtn.classList.remove("go-home-btn");
         DOM.nextCaseBtn.onclick = (() => {
             caseManager.goto_case(nextID);
         });
     } else {
-        DOM.nextCaseBtn.textContent = goHomeTxt;
+        DOM.nextCaseBtn.textContent = goHomeStyle.msgTxt;
+        DOM.nextCaseBtn.classList.add("go-home-btn");
         DOM.nextCaseBtn.onclick = returnHome;
     }
-
     DOM.navigationBtns.classList.remove('hidden');  // Show nav buttons
 }
 
@@ -176,7 +187,7 @@ function handleGuess() {
     gameState.guessesTaken++;
 
     // Check if correct (case-insensitive comparison)
-    if (userGuess.toLowerCase() === atob(answer).toLowerCase()) {
+    if (userGuess.toLowerCase() === answer.toLowerCase()) {
         gameState.completed = 1;
     } else if (gameState.guessesTaken === clues.length) {
         gameState.completed = -1;

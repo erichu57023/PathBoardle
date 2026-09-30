@@ -40,8 +40,6 @@
 
 
 :root[data-theme="dark"] {
-    --full-bright: white;
-    --no-bright: black;
     --bg-color: #121212;
     --bg-hover: #444444;
     --text-color: #e7e7e7;
@@ -54,23 +52,22 @@
     --modal-overlay-color: #ffffff80;
     --border-color: #eeeeee;
     --warning-color: #fc6d6d;
-    --warning-hover-color: #f73333;
+    --warning-hover-color: #d41c1c;
 
     --solved-color: #92e68a;
     --failed-color: #f73333;
     --incomplete-color: #deab10;
 
-    --random-btn-color: #1aa30e;
-    --random-btn-hover-color: #2bc91d;
-    --order-btn-color: #5a7892;
-    --order-btn-hover-color: #a3b9cd;
+    --random-btn-color: #2de11d;
+    --random-btn-hover-color: #308129;
+
+    --order-btn-color: #7b97b0;
+    --order-btn-hover-color: #466c8e;
 
     --hyperlink-color: #008fff;
 }
 
 :root[data-theme="light"] {
-    --full-bright: black;
-    --no-bright: white;
     --bg-color: #ededed;
     --bg-hover: #bbbbbb;
     --text-color: #1a1a1a;
@@ -82,17 +79,17 @@
     --button-disabled-color: #cccccc;
     --modal-overlay-color: #00000080;
     --border-color: #222222;
-    --warning-color: #f73333;
+    --warning-color: #d41c1c;
     --warning-hover-color: #fc6d6d;
 
     --solved-color: #6aaa64;
     --failed-color: #c62828;
     --incomplete-color: #deab10;
 
-    --random-btn-color: #2bc91d;
-    --random-btn-hover-color: #1aa30e;
-    --order-btn-color: #a3b9cd;
-    --order-btn-hover-color: #5a7892;
+    --random-btn-color: #308129;
+    --random-btn-hover-color: #2de11d;
+    --order-btn-color: #466c8e;
+    --order-btn-hover-color: #7b97b0;
 
     --hyperlink-color: #0000ff;
 }
@@ -146,18 +143,11 @@ button {
     padding: 12px 24px;
     font-size: var(--text-normal);
     font-weight: bold;
-    color: var(--text-color-inv);
-    background-color: var(--primary-color);
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.2s;
-    color: var(--no-bright);
     text-align: center;
-}
-button:hover:not(:disabled) {
-    background-color: var(--secondary-color);
-    color: var(--full-bright);
 }
 button:disabled {
     background-color: var(--button-disabled-color);
@@ -457,23 +447,27 @@ header {
     display: flex;
     justify-self: center; 
 }
-#case-select-btns button {
+/* #case-select-btns button {
     color: var(--text-color);
-}
+} */
 #case-select-btns > :disabled {
     background-color: var(--button-disabled-color);
 }
 #play-order-btn {
     background-color: var(--order-btn-color);
+    color: contrast-color(var(--order-btn-color));
 }
 #play-order-btn:hover:not(:disabled) {
     background-color: var(--order-btn-hover-color);
+    color: contrast-color(var(--order-btn-hover-color));
 }
 #play-random-btn {
     background-color: var(--random-btn-color);
+    color: contrast-color(var(--random-btn-color));
 }
 #play-random-btn:hover:not(:disabled) {
     background-color: var(--random-btn-hover-color);
+    color: contrast-color(var(--random-btn-hover-color));
 }
 
 /* =========================================
@@ -624,24 +618,22 @@ header {
     width: 100%;
     gap: 10px;
 }
-#prev-case-btn {
-    flex-grow: 0;
-    width: 40%;
+.adj-case-btn {
     background-color: var(--primary-color);
-    color: var(--no-bright);
+    color: contrast-color(var(--primary-color));
 }
-#prev-case-btn:hover {
-    background-color: var(--half-bright);
+.adj-case-btn:hover {
+    background-color: var(--secondary-color);
+    color: contrast-color(var(--secondary-color));
 }
-#next-case-btn {
-    flex-grow: 1;
-    background-color: var(--primary-color);
-    color: var(--no-bright);
+.go-home-btn {
+    background-color: var(--order-btn-color);
+    color: contrast-color(var(--order-btn-color));
 }
-#next-case-btn:hover {
-    background-color: var(--half-bright);
+.go-home-btn:hover {
+    background-color: var(--order-btn-hover-color);
+    color: contrast-color(var(--order-btn-hover-color));
 }
-
 #game-scrollable {
     flex-grow: 1;
     overflow-y: auto;
@@ -701,12 +693,11 @@ header {
 
 .close-modal-btn {
     background-color: var(--primary-color);
-    color: var(--no-bright)
+    color: contrast-color(var(--primary-color));
 }
-
 .close-modal-btn:hover {
-    background-color: var(--half-bright);
-    color: var(--full-bright)
+    background-color: var(--secondary-color);
+    color: contrast-color(var(--secondary-color))
 }
 
 #close-reset-btn {
@@ -715,10 +706,12 @@ header {
 }
 
 #confirm-reset-btn {
-    background-color: var(--warning-color)
+    background-color: var(--warning-color);
+    color: contrast-color(var(--warning-color));
 }
 #confirm-reset-btn:hover {
-    background-color: var(--warning-hover-color)
+    background-color: var(--warning-hover-color);
+    color: contrast-color(var(--warning-hover-color));
 }
 
 #close-about-btn {

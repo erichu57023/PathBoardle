@@ -1,11 +1,12 @@
 // Fetch a json from a remote database
-async function fetch_json(db_site) {
+async function fetch_remote(db_site) {
     const response = await fetch(db_site);
     if (!response.ok) {
-        console.warn("Could not fetch remote json");
+        console.warn("Could not fetch remote data");
         return {};
     }
-    return await response.json();
+    const stream = response.body.pipeThrough(new DecompressionStream('gzip'));
+    return await new Response(stream).json();
 }
 
 // Shuffle an array using Fisher-Yates algorithm
@@ -22,7 +23,7 @@ function shuffle(array) {
 }
 
 // Pull case index information from remote
-const [n_clues, c1, c2] = await fetch_json("./store/idx.json");
+const [n_clues, c1, c2] = await fetch_remote("./store/x.blob");
 const n_cases = n_clues.length;
 
 // Pull case history from localStorage
@@ -34,23 +35,23 @@ const caseManager = {
     c1,
     c2,
     n_clues,
-    dict: await fetch_json("./store/dict.json"),
+    dict: await fetch_remote("./store/d.blob"),
     history,
     store: {},
-    imgs: await fetch_json("./store/img.json"),
+    imgs: await fetch_remote("./store/g.blob"),
     
     async fetch_case(case_0id) {
         const storeid = Math.floor(case_0id / 100);
         const idx = case_0id % 100;
         
         if (!Object.hasOwn(this.store, storeid)) { // Cache blobs
-            this.store[storeid] = await fetch_json(`./store/blob${storeid}.json`);
+            this.store[storeid] = await fetch_remote(`./store/${storeid}.blob`);
         }
         return this.store[storeid][idx];
     },
 
     get_image_URL(img_name) {
-        return `https://drive.google.com/thumbnail?id=${atob(this.imgs[img_name])}&sz=w1600`;
+        return `https://drive.google.com/thumbnail?id=${this.imgs[img_name]}&sz=w1600`;
     },
 
     case_exists(case_0id) {
