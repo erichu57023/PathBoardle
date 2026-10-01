@@ -4,22 +4,23 @@ import { DOM, categoryClassMap } from "./elements.js"
 import caseManager from './case_manager.js';
 
 // Locals
-let active_filter = "All Cases";
+let active_filter = undefined;
 const filterEmptyNode = document.createElement("p")
 filterEmptyNode.textContent = "No cases found for this category.";
 
 /* -------- RENDERING HELPER FUNCTIONS -------- */
 
 // Get a valid list of cases which match a filter category
-function getCaseList(filt_label) {
+function getCaseList(filt_category) {
     const allCases = Array.from({length: caseManager.n_cases}, (_, index) => index);
     // If filter is not specified, show all cases
-    if (filt_label == undefined || filt_label === "All Cases" ) {
+    if (filt_category == undefined) {
         return allCases;
     }
     // Otherwise, return a filtered list of case indices
     return allCases.filter((element) => {
-        return caseManager.c1[element] === filt_label || caseManager.c2[element] === filt_label
+        return categoryClassMap[caseManager.c1[element]] === filt_category || 
+               categoryClassMap[caseManager.c2[element]] === filt_category
     });
 }
 
@@ -87,11 +88,11 @@ DOM.filterDropdown.addEventListener('click', (event) => {
     if (!selectedElement) return;
     
     // Update UI contents
-    active_filter = selectedElement.textContent;                // Update active filter based on selection
-    DOM.filterSelection.textContent = active_filter;            // Update filter selection label
-    DOM.filterSelection.className = selectedElement.className;  // Update filter selection style
-    DOM.filterDropdown.classList.add('hidden');                 // Hide the dropdown menu
-    DOM.filterIcon.classList.remove('transformed');             // Detransform the button
+    active_filter = categoryClassMap[selectedElement.textContent]; // Update active filter based on selection
+    DOM.filterSelection.textContent = selectedElement.textContent; // Update filter selection label
+    DOM.filterSelection.className = selectedElement.className;     // Update filter selection style
+    DOM.filterDropdown.classList.add('hidden');                    // Hide the dropdown menu
+    DOM.filterIcon.classList.remove('transformed');                // Detransform the button
 
     // Rerender UI
     renderMenu();
