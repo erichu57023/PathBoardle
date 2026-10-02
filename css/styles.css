@@ -60,9 +60,10 @@
 
     --random-btn-color: #2de11d;
     --random-btn-hover-color: #308129;
-
     --order-btn-color: #7b97b0;
     --order-btn-hover-color: #466c8e;
+    --submit-btn-color: #57bcff;
+    --submit-btn-hover-color: #106dab;
 
     --hyperlink-color: #008fff;
 }
@@ -90,6 +91,8 @@
     --random-btn-hover-color: #2de11d;
     --order-btn-color: #466c8e;
     --order-btn-hover-color: #7b97b0;
+    --submit-btn-color: #106dab;
+    --submit-btn-hover-color: #57bcff;
 
     --hyperlink-color: #0000ff;
 }
@@ -605,17 +608,21 @@ header {
 }
 
 #autocomplete-dropdown li:hover {
-    background-color: var(--primary-color);
-    color: var(--text-color-inv);
-}
-
-#autocomplete-dropdown li:hover strong {
-    color: var(--text-color-inv); /* Ensures highlighted text stays readable on hover */
+    background-color: var(--submit-btn-color);
+    color: contrast-color(var(--submit-btn-color));
 }
 
 #submit-btn {
     flex-grow: 0;
     width: 30%;
+}
+#submit-btn:not(:disabled) {
+    background-color: var(--submit-btn-color);
+    color: contrast-color(var(--submit-btn-color));
+}
+#submit-btn:hover:not(:disabled) {
+    background-color: var(--submit-btn-hover-color);
+    color: contrast-color(var(--submit-btn-hover-color));
 }
 
 #navigation-btns {

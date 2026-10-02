@@ -25,7 +25,7 @@ const nextCaseStyle = {
 const goHomeStyle = {
     msgTxt: "Menu"
 }
-const imgRegEx = /\[image=(.*?)\]/;
+const imgRegEx = /\[image=(.*?)\]/g;
 
 /* -------- RENDERING HELPER FUNCTIONS -------- */
 // Close autocomplete dropdown menu
@@ -53,7 +53,7 @@ async function renderCaseDetails() {
         clueDiv.className = 'clue';
         
         // Parse clue for internal images
-        const clueText = clues[i].replace(imgRegEx, (_, capture) => {
+        const clueText = clues[i].replaceAll(imgRegEx, (_, capture) => {
             const clueImgURL = caseManager.get_image_URL(capture);
             return `<br><div class=clueimg><img src=${clueImgURL}></div>`;
         });

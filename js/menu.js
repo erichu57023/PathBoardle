@@ -59,7 +59,7 @@ function buildCaseCardElement(list_idx) {
 
     // Extract category and subcategory
     const catDiv = caseManager.c1[list_idx];
-    const catCls = catDiv.toLowerCase();
+    const catCls = categoryClassMap[catDiv];
     const subCatDiv = caseManager.c2[list_idx];
     const subCatCls = categoryClassMap[subCatDiv] ?? "hidden";
     

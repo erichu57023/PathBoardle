@@ -23,7 +23,7 @@ function shuffle(array) {
 }
 
 // Pull case index information from remote
-const [n_clues, c1, c2] = await fetch_remote("./store/x.blob");
+const {n_clues, c1, c2} = await fetch_remote("./store/x.blob");
 const n_cases = n_clues.length;
 
 // Pull case history from localStorage
