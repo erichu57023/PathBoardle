@@ -382,15 +382,15 @@ header {
     display: inline-grid;
     width: fit-content;
     height: fit-content;
-    justify-self: center;
+    justify-self: left;
     align-self: center;
     font-weight: bold;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 50px;
 }
 
 .case-title {
     font-size: var(--text-subsub);
-    white-space: nowrap;
-    text-justify: center;
 }
 
 .case-category {
