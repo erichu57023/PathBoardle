@@ -493,7 +493,7 @@ header {
     flex-shrink: 0;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     margin: var(--body-pad) 0;
 }
 
@@ -505,6 +505,22 @@ header {
     font-weight: bold;
     font-size: var(--text-sub);
     text-align: right;
+    margin: 0 var(--body-pad) 0 auto;
+}
+
+#reset-case-btn {
+    flex-grow: 0;
+    height: 100%;
+    width: fit-content;
+    padding: 8px 12px;
+}
+#reset-case-btn:not(:disabled) {
+    background-color: var(--warning-color);
+    color: contrast-color(var(--warning-color));
+}
+#reset-case-btn:hover:not(:disabled) {
+    background-color: var(--warning-hover-color);
+    color: contrast-color(var(--warning-hover-color));
 }
 
 #clues-container {

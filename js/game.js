@@ -86,6 +86,9 @@ function renderGuesses() {
             break;
     }
 
+    // If at least one guess was taken, enable reset button
+    DOM.resetCaseBtn.disabled = gameState.guessesTaken === 0;
+
     // Render guess history
     const guessHistoryFragment = document.createDocumentFragment();
     for (let i = 0; i < incorrectCount; i++) {
@@ -218,6 +221,13 @@ function hookListeners() {
 
     // Handle inputs in the input box
     DOM.inputBox.addEventListener('input', updateAutoDropdown);
+
+    // Handle reset button
+    DOM.resetCaseBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        caseManager.reset_history(currentID)  // Wipe this case's history
+        renderGame();
+    })
 
     // Close the dropdown if the user clicks anywhere else on the page
     document.addEventListener('click', (event) => {

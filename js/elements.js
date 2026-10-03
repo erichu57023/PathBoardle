@@ -29,6 +29,7 @@ export const DOM = {
     gameView:           document.getElementById('game-view'),
     caseTitle:          document.getElementById('case-title'),
     guessCounter:       document.getElementById('guess-counter'),
+    resetCaseBtn:       document.getElementById('reset-case-btn'),
     cluesContainer:     document.getElementById('clues-container'),
     guessHistory:       document.getElementById('guess-history'),
     gameOverMsg:        document.getElementById('game-over-message'),

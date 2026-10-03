@@ -72,9 +72,14 @@ const caseManager = {
         localStorage.setItem('caseHistory', JSON.stringify(this.history));
     },
 
-    reset_history() {
-        this.history = [];
-        localStorage.setItem('caseHistory', '{}');
+    reset_history(case_0id) {
+        if (case_0id == null) {
+            this.history = {};
+            localStorage.setItem('caseHistory', '{}');
+        } else {
+            delete this.history[case_0id + 1];
+            localStorage.setItem('caseHistory', JSON.stringify(this.history));
+        }
     },
 
     fetch_history(case_0id) {
@@ -91,6 +96,7 @@ const caseManager = {
     // Get adjacent cases in the case queue
     adjacent_cases(case_0id) {
         const caseQueue = JSON.parse(sessionStorage.getItem("case_queue"));
+        if (caseQueue == null) return [NaN, NaN]
 
         const curr_idx = caseQueue.indexOf(case_0id);
         const prev_idx = curr_idx - 1;
