@@ -32,9 +32,38 @@
     color: #423671;
     background-color: #9e7cff;
 }
+.neuro {
+    color: #b10202;
+    background-color: #ffa3f4;
+}
+
 .heme-coag {
     color: #ffcfc9;
     background-color: #ff8080;
+}
+.red-cell {
+    color: #000000;
+    background-color: #ff0000;
+}
+.benign-white-cell {
+    color: #0a53a8;
+    background-color: #c7eaff;
+}
+.platelet-disorder {
+    color: #000000;
+    background-color: #868686;
+}
+.coagulation {
+    color: #ffc8aa;
+    background-color: #816042;
+}
+.myeloid {
+    color: #b4b7ff;
+    background-color: #675aff;
+}
+.lymphoid {
+    color: #000000;
+    background-color: #0569ff;
 }
 
 .bone-soft {
