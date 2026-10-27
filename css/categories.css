@@ -37,6 +37,19 @@
     background-color: #ffa3f4;
 }
 
+.transfusion {
+    color: #0f2247;
+    background-color: #b3d3ff;
+}
+.transfusion-reactions {
+    color: #000000;
+    background-color: #89dde0;
+}
+.immunohematology {
+    color: #000000;
+    background-color: #ff98ad;
+}
+
 .heme-coag {
     color: #ffcfc9;
     background-color: #ff8080;

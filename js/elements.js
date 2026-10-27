@@ -65,6 +65,7 @@ export const categoryClassMap = {
     "Head & Neck": "head-neck",
     "Heme/Coagulation": "heme-coag", "Hemepath/Coagulation": "heme-coag",
     "Hepatobiliary/Pancreas": "hep-panc",
+    "Immunohematology": "immunohematology",
     "Lipids": "lipids",
     "Lymphoid neoplasms": "lymphoid",
     "Micro": "micro", "Microbiology": "micro",
@@ -76,6 +77,8 @@ export const categoryClassMap = {
     "Red cell disorders": "red-cell",
     "Skin": "skin",
     "Thoracic": "thoracic",
+    "Transfusion Medicine": "transfusion",
+    "Transfusion reactions": "transfusion-reactions",
     "Viruses": "viruses"
 }
 
