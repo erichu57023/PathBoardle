@@ -459,6 +459,7 @@ header {
 .clueimg img {
     padding: 12px 0px;
     max-width: 90%;
+    max-height: 50dvh;
     object-fit: contain;
 }
 
@@ -792,7 +793,7 @@ header {
     object-fit: contain;
 }
 #credits-content {
-    height: 75%;
+    height: 90%;
     width: 90%;
     overflow-y: auto;
 }
