@@ -1,7 +1,7 @@
 /* -------- SETUP -------- */
 // Core imports
 import { DOM, categoryClassMap } from "./elements.js"
-import caseManager from './case_manager.js';
+import { caseManager } from './case_manager.js';
 
 // Locals
 let active_filter = undefined;

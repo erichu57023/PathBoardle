@@ -1,7 +1,7 @@
 /* -------- SETUP -------- */
 // Core imports
 import { DOM, switchTheme } from './elements.js';
-import caseManager from './case_manager.js';
+import { caseManager, fetch_remote } from './case_manager.js';
 import { renderMenu } from './menu.js';
 import { renderGame } from './game.js';
 
@@ -11,7 +11,7 @@ export function returnHome() {
     window.location.href = ".";
 }
 
-// Transition the UI to the menu state
+// Set the UI to the menu state
 function showMenu() {
     // Call the menu rendering logic
     renderMenu();
@@ -32,6 +32,12 @@ async function showGame(selectedCase) {
     await renderGame(selectedCase);
 }
 
+// Link credits html text
+async function linkCredits() {
+    const creditsJSON = await fetch_remote("store/c.blob");
+    DOM.creditsContribs.innerHTML = creditsJSON["contribs"];
+    DOM.creditsOthers.innerHTML = creditsJSON["others"];
+}
 
 /* -------- EVENT LISTENERS -------- */
 function hookListeners() {
@@ -73,6 +79,12 @@ function hookListeners() {
                 DOM.optsDropdown.classList.add('hidden');       // Hide the dropdown menu
                 DOM.optsBtn.classList.remove('transformed');    // Detransform the button
                 DOM.aboutModal.classList.remove('hidden');      // Show the modal
+                break;
+
+            case "opts-credits":  // Open Credits modal
+                DOM.optsDropdown.classList.add('hidden');       // Hide the dropdown menu
+                DOM.optsBtn.classList.remove('transformed');    // Detransform the button
+                DOM.creditsModal.classList.remove('hidden');    // Show the modal
         }
     });
 
@@ -92,12 +104,23 @@ function hookListeners() {
             DOM.aboutModal.classList.add('hidden');             // Close the modal
         }
     });
+
+    // Close Credits modal
+    DOM.creditsModal.addEventListener("click", (evt) => {
+        if (evt.target.matches('#credits-overlay, #close-credits-btn')) {
+            DOM.creditsModal.classList.add('hidden');             // Close the modal
+        }
+    });
 }
 
 /* -------- MAIN -------- */
 async function main() {
+    // Populate credits modal
+    await linkCredits();
+
     // Parse the URL to see if a specific case is requested (e.g., ?case=1)
-    const case_0id = parseInt((new URLSearchParams(window.location.search)).get('case')) - 1;
+    const urlParams = new URLSearchParams(window.location.search);
+    const case_0id = parseInt(urlParams.get('case')) - 1;
 
     // Transition to game UI if case id is valid, otherwise transition to menu
     caseManager.case_exists(case_0id) ? await showGame(case_0id) : showMenu();

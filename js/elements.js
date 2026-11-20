@@ -8,6 +8,7 @@ export const DOM = {
     optsThemeBtn:       document.getElementById('opts-theme'),
     optsResetBtn:       document.getElementById('opts-reset'),
     optsAboutBtn:       document.getElementById('opts-about'),
+    optsCreditsBtn:     document.getElementById('opts-credits'),
 
     mainElement:        document.querySelector('main'),
     aboutModal:         document.getElementById('about-modal'),
@@ -41,7 +42,11 @@ export const DOM = {
     
     navigationBtns:     document.getElementById('navigation-btns'),
     prevCaseBtn:        document.getElementById('prev-case-btn'),
-    nextCaseBtn:        document.getElementById('next-case-btn')
+    nextCaseBtn:        document.getElementById('next-case-btn'),
+
+    creditsModal:       document.getElementById('credits-modal'),
+    creditsContribs:    document.getElementById('credits-contribs'),
+    creditsOthers:      document.getElementById('credits-others'),
 };
 
 

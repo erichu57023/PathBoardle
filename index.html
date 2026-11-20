@@ -27,7 +27,7 @@
 		
 		<!-- Center: Title -->
 		<div class="header-center">
-			<a href="." id="app-title">PathBoardle</a>
+			<a href="." id="app-title"><img src="store/photo-tiles-logo.svg" referrerPolicy="no-referrer"></a>
 		</div>
 		
 		<!-- Right: Options Dropdown -->
@@ -38,6 +38,7 @@
 					<li><a href="#" id="opts-theme"></a></li>
 					<li><a href="#" id="opts-reset">Reset progress</a></li>
 					<li><a href="#" id="opts-about">About</a></li>
+					<li><a href="#" id="opts-credits">Credits</a></li>
 				</ul>
 			</div>
         </div>
@@ -157,28 +158,48 @@
 	<div id="about-modal" class="modal hidden">
         <div class="modal-overlay" id="about-overlay"></div>
         <div class="modal-content">
-            <h2>About PathBoardle</h2>
+            <h1>About PathBoardle</h1>
             <p>
 				A self-paced, boards-relevant guess-the-diagnosis game for pathologists.<br>
-            	Cases written by Katrina Jiang, MD (PGY-2). <br>
-				Website by Eric Hu (GS3).<br>
+            	<div class="admin">
+					<div class="admin-text"><p>Created by <b>Katrina Jiang, MD</b></p></div>
+					<div class="admin-image"><img src="https://lh3.googleusercontent.com/d/18Bj2w0_F6kej6_DxYcIjJT39NCMKs2iW=w1600?authuser=0" referrerPolicy="no-referrer"></div>	
+				</div>
+				<div class="admin">
+					<div class="admin-text"><p>Website by <b>Eric Hu</b></p></div>
+					<div class="admin-image"><img src="https://lh3.googleusercontent.com/d/12GmKXDUK2NoKxOunPj-GRhpsFbwEKHXN=w1600?authuser=0" referrerPolicy="no-referrer"></div>
+				</div>
+				<div class="admin">
+					<div class="admin-text"><p>Our crochet mascot, <b>Scopey</b></p></div>
+					<div class="admin-image"><img src="https://lh3.googleusercontent.com/d/1IoiEwchQeL3_odeMAcUanzHbo7XIbLjy=w1600?authuser=0" referrerPolicy="no-referrer"></div>
+				</div>
 				<hr>
 				If you enjoy the site and have the means, please consider supporting us!<br>
 				<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support us on Ko-fi', '#5b3f86', 'O2Z4282HII');kofiwidget2.draw();</script> 
 				<hr>
-				<u>Image Contributors:</u><br>
-					Hector Chavarria, MD: Adenoid basal carcinoma, Dedifferentiated liposarcoma, Gastric-type endocervical adenocarcinoma, High-grade serous carcinoma, Low-grade serous carcinoma, Serous endometrial intraepithelial carcinoma<br>
-					Jing Zhou, MD - Toxoplasma lymphadenitis
-				<hr>
-
-				If you'd like to write cases (and be listed as a contributor), or for any comments/questions/concerns,
+				If you'd like to contribute cases, or for any comments/questions/concerns,
 				<a href="mailto:pathboardle@gmail.com" class="hyper">send us an email</a>!
 				<hr>
 				©2026 PathBoardle. All rights reserved.
 			</p>
-            <button id="close-about-btn" class="close-modal-btn">Close</button>
+            <button class="close-modal-btn" id="close-about-btn">Close</button>
         </div>
     </div>
+
+	<!-- CREDITS MODAL: Shows a credits page -->
+	<div id="credits-modal" class="modal hidden">
+		<div class="modal-overlay" id="credits-overlay"></div>
+		<div class="modal-content" id="credits-content">
+			<h1><img src="store/credits.svg" id="credits-img" referrerPolicy="no-referrer"></h1>
+			<h2><u>Contributing Pathologists</u></h2>
+			<div id="credits-contribs"><!-- div contrib > contrib-img, contrib-txt --></div>
+			<br>
+			<h2><u>Other Credits</u></h2>
+			<div id="credits-others"></div>
+			<br>
+			<button class="close-modal-btn" id="close-credits-btn">Close</button>
+		</div>
+	</div>
 
 	<!-- RESET MODAL: Shows a reset confirmation -->
 	<div id="reset-modal" class="modal hidden">
@@ -187,7 +208,7 @@
             <h2>Confirm reset</h2>
             <p>Are you sure you want to reset? All progress will be deleted.</p>
 			<div class="btn-cluster">
-				<button id="close-reset-btn" class="close-modal-btn">No</button>
+				<button class="close-modal-btn" id="close-reset-btn">No</button>
 				<button id="confirm-reset-btn">Reset</button>
 			</div>
         </div>

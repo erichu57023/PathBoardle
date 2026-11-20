@@ -1,7 +1,7 @@
 /* -------- SETUP -------- */
 // Core imports
 import { DOM } from "./elements.js"
-import caseManager from './case_manager.js';
+import { caseManager } from './case_manager.js';
 import { returnHome } from './main.js';
 
 // Locals
@@ -55,7 +55,7 @@ async function renderCaseDetails() {
         // Parse clue for internal images
         const clueText = clues[i].replaceAll(imgRegEx, (_, capture) => {
             const clueImgURL = caseManager.get_image_URL(capture);
-            return `<br><div class=clueimg><img src=${clueImgURL}></div>`;
+            return `<br><div class=clueimg><img src=${clueImgURL} referrerPolicy="no-referrer"></div>`;
         });
 
         clueDiv.innerHTML = clueText;

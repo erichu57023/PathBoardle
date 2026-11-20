@@ -1,5 +1,5 @@
 // Fetch a json from a remote database
-async function fetch_remote(db_site) {
+export async function fetch_remote(db_site) {
     const response = await fetch(db_site);
     if (!response.ok) {
         console.warn("Could not fetch remote data");
@@ -30,7 +30,7 @@ const n_cases = n_clues.length;
 const history = JSON.parse(localStorage.getItem('caseHistory')) || {};
 
 // Create case manager object
-const caseManager = {
+export const caseManager = {
     n_cases,
     c1,
     c2,
@@ -110,5 +110,3 @@ const caseManager = {
         return [prev_case, next_case];
     }
 }
-
-export default caseManager;

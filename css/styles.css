@@ -200,7 +200,17 @@ header {
     font-size: var(--text-header);
     font-weight: 700;
     letter-spacing: 0.5px;
-    margin: 0;
+    margin: 0 6px;
+    align-items: center;
+    display: flex;
+}
+#app-title img {
+    max-height: 100px;
+    max-width: 450px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    
 }
 
 .header-right {
@@ -394,12 +404,16 @@ header {
 }
 
 .case-category {
+    justify-self: end;
     font-weight: normal;
     font-size: 0.75rem;
     border-radius: 16px;
     padding: 2px 5px;
     min-width: 40px;
     text-align: center;
+}
+.case-subcategory {
+    justify-self: start;
 }
 
 .case-status {
@@ -673,6 +687,7 @@ header {
     margin-top: auto;
 }
 
+
 /* =========================================
    MODALS
    ========================================= */
@@ -722,6 +737,7 @@ header {
 .close-modal-btn {
     background-color: var(--primary-color);
     color: contrast-color(var(--primary-color));
+    width: 100%;
 }
 .close-modal-btn:hover {
     background-color: var(--secondary-color);
@@ -732,7 +748,6 @@ header {
     flex-grow: 0;
     width: 25%;
 }
-
 #confirm-reset-btn {
     background-color: var(--warning-color);
     color: contrast-color(var(--warning-color));
@@ -742,10 +757,70 @@ header {
     color: contrast-color(var(--warning-hover-color));
 }
 
-#close-about-btn {
-    margin-top: 10px;
+/* =========================================
+   CREDITS
+   ========================================= */
+.admin {
+    display: flex;
+    align-items: center;
+    gap: var(--body-pad);
     width: 100%;
 }
+.admin .admin-text {
+    flex: 0 0 50%;
+    justify-self: end;
+    display: flex;
+    justify-content: end;
+    text-align: left;
+}
+.admin .admin-image {
+    flex: 0 0 50%;
+    max-height: 100%;
+    display: flex;
+    justify-content: start;
+}
+.admin .admin-image img {
+    max-height: 150px;
+}
+
+#credits-img {
+    max-height: 75px;
+    max-width: 275px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+#credits-content {
+    height: 75%;
+    width: 90%;
+    overflow-y: auto;
+}
+#credits-contribs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 350px);
+    gap: var(--element-pad);
+    justify-content: center;
+}
+.contrib {
+    display: flex;
+    align-items: center;
+    flex: 0 0 700px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin: 2px;
+}
+.contrib-img img {
+    max-height: 150px;
+}
+.contrib-txt {
+    text-align: left;
+    flex-wrap: wrap;
+    margin: 12px 6px;
+}
+#credits-others {
+    text-align: left;
+}
+
 
 /* =========================================
    UTILITIES & ANIMATIONS
